@@ -1,17 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RoomManager : MonoBehaviour
 {
     public Room[] rooms;
 
-    public void SwitchRoom(string roomName){
-        foreach(Room room in rooms){
-            if(room.name != roomName){
+    public Room currentRoom;
+
+    UImanager uiManager;
+
+    void Start()
+    {
+        uiManager = GetComponent<UImanager>();
+
+        SwitchRoom("room_1");
+    }
+
+    public void SwitchRoom(string roomName)
+    {
+        foreach (Room room in rooms)
+        {
+            if (room.name == roomName)
+            {
+                currentRoom = room;
+                currentRoom.gameObject.SetActive(true);
+                uiManager.UpdateRoomUI(currentRoom);
+            }
+            else
+            {
                 room.gameObject.SetActive(false);
-            }else{
-                room.gameObject.SetActive(true);
             }
         }
     }

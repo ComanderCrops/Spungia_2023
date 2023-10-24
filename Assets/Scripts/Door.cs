@@ -1,10 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
-public class Door : IInteractible
+public class Door : MonoBehaviour, IPointerClickHandler
 {
-    public UnityEvent m_MyEvent;
+    public UnityEvent doorOpenEvent;
 
+    public void OnPointerClick(PointerEventData pointerEventData)
+    {
+        doorOpenEvent.Invoke();
+    }
+
+    /*void OnPointerEnter(PointerEventData pointerEventData)
+    {
+        //doorOpenEvent = null;
+    }
+
+    void OnPointerExit(PointerEventData pointerEventData)
+    {
+        //doorOpenEvent = null;
+    }*/
 }

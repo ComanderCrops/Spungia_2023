@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: f082e69f825d0aa44b687e592731c0a8, type: 3}
   name: key_1
-  name_display: Key from amongus
+  displayName: Key 1

@@ -113,6 +113,7 @@ MonoBehaviour:
           m_StringArgument: room_2
           m_BoolArgument: 0
         m_CallState: 2
+  radius: 0.5
 --- !u!61 &9211195839119239143
 BoxCollider2D:
   m_ObjectHideFlags: 0

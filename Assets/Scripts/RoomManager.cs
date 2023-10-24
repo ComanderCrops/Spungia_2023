@@ -8,9 +8,12 @@ public class RoomManager : MonoBehaviour
 
     UImanager uiManager;
 
+    GameObject player;
+
     void Start()
     {
         uiManager = GetComponent<UImanager>();
+        player = GameObject.FindGameObjectWithTag("Player");
 
         SwitchRoom("room_1");
     }
@@ -24,6 +27,8 @@ public class RoomManager : MonoBehaviour
                 currentRoom = room;
                 currentRoom.gameObject.SetActive(true);
                 uiManager.UpdateRoomUI(currentRoom);
+
+                player.transform.position = currentRoom.transform.GetChild(0).position;
             }
             else
             {

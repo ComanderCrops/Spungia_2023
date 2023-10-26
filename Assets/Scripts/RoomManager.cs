@@ -15,14 +15,14 @@ public class RoomManager : MonoBehaviour
         uiManager = GetComponent<UImanager>();
         player = GameObject.FindGameObjectWithTag("Player");
 
-        SwitchRoom("room_1");
+        SwitchRoom(rooms[0]);
     }
 
-    public void SwitchRoom(string roomName)
+    public void SwitchRoom(Room targetRoom)
     {
         foreach (Room room in rooms)
         {
-            if (room.name.Equals(roomName))
+            if (room == targetRoom)
             {
                 currentRoom = room;
                 currentRoom.gameObject.SetActive(true);

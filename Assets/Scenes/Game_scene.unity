@@ -166,6 +166,10 @@ PrefabInstance:
       value: -8.25
       objectReference: {fileID: 0}
     - target: {fileID: 9211195839119239142, guid: d4485139aa8ad62469012b6b2d655fd1, type: 3}
+      propertyPath: doorOpenEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9211195839119239142, guid: d4485139aa8ad62469012b6b2d655fd1, type: 3}
       propertyPath: doorOpenEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 519420033}
@@ -174,8 +178,16 @@ PrefabInstance:
       value: SwitchRoom
       objectReference: {fileID: 0}
     - target: {fileID: 9211195839119239142, guid: d4485139aa8ad62469012b6b2d655fd1, type: 3}
+      propertyPath: doorOpenEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 318216793}
+    - target: {fileID: 9211195839119239142, guid: d4485139aa8ad62469012b6b2d655fd1, type: 3}
       propertyPath: doorOpenEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: room_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9211195839119239142, guid: d4485139aa8ad62469012b6b2d655fd1, type: 3}
+      propertyPath: doorOpenEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Room, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9211195839325551746, guid: d4485139aa8ad62469012b6b2d655fd1, type: 3}
       propertyPath: m_Name
@@ -1021,10 +1033,10 @@ MonoBehaviour:
       - m_Target: {fileID: 519420033}
         m_TargetAssemblyTypeName: RoomManager, Assembly-CSharp
         m_MethodName: SwitchRoom
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1542615675}
+          m_ObjectArgumentAssemblyTypeName: Room, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: room_3
@@ -1032,7 +1044,6 @@ MonoBehaviour:
         m_CallState: 2
   locked: 0
   key: {fileID: 0}
-  doorUsed: 0
 --- !u!212 &1960370011
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1097,6 +1108,10 @@ PrefabInstance:
       value: -8.25
       objectReference: {fileID: 0}
     - target: {fileID: 9211195839119239142, guid: d4485139aa8ad62469012b6b2d655fd1, type: 3}
+      propertyPath: doorOpenEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9211195839119239142, guid: d4485139aa8ad62469012b6b2d655fd1, type: 3}
       propertyPath: doorOpenEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 519420033}
@@ -1105,8 +1120,16 @@ PrefabInstance:
       value: SwitchRoom
       objectReference: {fileID: 0}
     - target: {fileID: 9211195839119239142, guid: d4485139aa8ad62469012b6b2d655fd1, type: 3}
+      propertyPath: doorOpenEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1358674466}
+    - target: {fileID: 9211195839119239142, guid: d4485139aa8ad62469012b6b2d655fd1, type: 3}
       propertyPath: doorOpenEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: room_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9211195839119239142, guid: d4485139aa8ad62469012b6b2d655fd1, type: 3}
+      propertyPath: doorOpenEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Room, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9211195839325551746, guid: d4485139aa8ad62469012b6b2d655fd1, type: 3}
       propertyPath: m_Name
@@ -1299,16 +1322,28 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9211195839119239142, guid: d4485139aa8ad62469012b6b2d655fd1, type: 3}
+      propertyPath: doorOpenEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9211195839119239142, guid: d4485139aa8ad62469012b6b2d655fd1, type: 3}
       propertyPath: doorOpenEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 519420033}
+    - target: {fileID: 9211195839119239142, guid: d4485139aa8ad62469012b6b2d655fd1, type: 3}
+      propertyPath: doorOpenEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1358674466}
+    - target: {fileID: 9211195839119239142, guid: d4485139aa8ad62469012b6b2d655fd1, type: 3}
+      propertyPath: doorOpenEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Room, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 9211195839325551746, guid: d4485139aa8ad62469012b6b2d655fd1, type: 3}
       propertyPath: m_Name
       value: Room_1
       objectReference: {fileID: 0}
     - target: {fileID: 9211195839325551746, guid: d4485139aa8ad62469012b6b2d655fd1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9211195839325551756, guid: d4485139aa8ad62469012b6b2d655fd1, type: 3}
       propertyPath: m_RootOrder

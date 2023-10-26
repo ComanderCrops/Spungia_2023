@@ -22,13 +22,13 @@ public class RoomManager : MonoBehaviour
     {
         foreach (Room room in rooms)
         {
-            if (room.name == roomName)
+            if (room.name.Equals(roomName))
             {
                 currentRoom = room;
                 currentRoom.gameObject.SetActive(true);
                 uiManager.UpdateRoomUI(currentRoom);
 
-                player.transform.position = currentRoom.transform.GetChild(0).position;
+                player.transform.position = new Vector3(-transform.position.x, -transform.position.y, 0);
             }
             else
             {

@@ -7,33 +7,35 @@ public class Door : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] UnityEvent doorOpenEvent;
 
-    [SerializeField] float radius = 0.5f;
+    float radius = 0.5f;
+
+    [SerializeField] bool doorUsed = false;
 
     GameObject player;
-    IDOTweenInit doTween;
-
-    bool doorUsed = false;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        doTween = DOTween.Init(true, true);
-    }
-
-    void Update()
-    {
-        if (doorUsed && Vector2.Distance(transform.position, player.transform.position) < radius)
-        {
-            doorUsed = false;
-            DOTween.Kill(doTween);
-            doorOpenEvent.Invoke();
-        }
     }
 
     public void OnPointerClick(PointerEventData pointerEventData)
     {
         doorUsed = true;
-        player.transform.DOMoveX(transform.position.x, 4);
+
+        if (Vector2.Distance(player.transform.position, transform.position) < radius)
+        {
+            runDoorOpenEvent();
+        }
+        else
+        {
+            player.transform.DOMove(transform.position, 4).onComplete = runDoorOpenEvent;
+        }
+    }
+
+    void runDoorOpenEvent()
+    {
+        doorUsed = false;
+        doorOpenEvent.Invoke();
     }
 
     /*void OnPointerEnter(PointerEventData pointerEventData)

@@ -7,19 +7,35 @@ public class Door : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] UnityEvent doorOpenEvent;
 
+    [SerializeField] bool locked = false;
+    [SerializeField] Item_SO key;
+
     float radius = 0.5f;
 
-    [SerializeField] bool doorUsed = false;
+    bool doorUsed = false;
 
     GameObject player;
+    InventoryManager inventoryManager;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        inventoryManager = Camera.main.GetComponent<InventoryManager>();
     }
 
     public void OnPointerClick(PointerEventData pointerEventData)
     {
+        if (doorUsed)
+        {
+            return;
+        }
+
+        if (locked && !inventoryManager.ContainsItem(key))
+        {
+            Debug.Log(key.displayName + " (" + key.name + ") required to unlock door");
+            return;
+        }
+
         doorUsed = true;
 
         if (Vector2.Distance(player.transform.position, transform.position) < radius)

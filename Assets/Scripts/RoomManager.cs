@@ -28,7 +28,7 @@ public class RoomManager : MonoBehaviour
                 currentRoom.gameObject.SetActive(true);
                 uiManager.UpdateRoomUI(currentRoom);
 
-                player.transform.position = new Vector3(-transform.position.x, -transform.position.y, 0);
+                player.transform.position = new Vector3(-player.transform.position.x, -player.transform.position.y, 0);
             }
             else
             {

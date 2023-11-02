@@ -3,7 +3,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using DG.Tweening;
 
-public class Door : MonoBehaviour, IPointerClickHandler
+public class Door : IInteractible
 {
     [SerializeField] UnityEvent doorOpenEvent;
 
@@ -23,7 +23,7 @@ public class Door : MonoBehaviour, IPointerClickHandler
         inventoryManager = Camera.main.GetComponent<InventoryManager>();
     }
 
-    public void OnPointerClick(PointerEventData pointerEventData)
+    public override void OnPointerClick(PointerEventData pointerEventData)
     {
         if (doorUsed)
         {

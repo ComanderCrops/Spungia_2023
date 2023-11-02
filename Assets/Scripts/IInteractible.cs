@@ -3,18 +3,18 @@ using UnityEngine.EventSystems;
 
 public class IInteractible : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    public void OnPointerClick(PointerEventData pointerEventData)
+    public virtual void OnPointerClick(PointerEventData pointerEventData)
     {
-        Debug.Log("Cursor clicked on " + gameObject.name + " GameObject");
+        Debug.Log("Cursor clicked on " + gameObject.name);
     }
 
-    public void OnPointerEnter(PointerEventData pointerEventData)
+    public virtual void OnPointerEnter(PointerEventData pointerEventData)
     {
-        Debug.Log("Cursor Entering " + gameObject.name + " GameObject");
+        Debug.Log("Cursor entered " + gameObject.name);
     }
 
-    public void OnPointerExit(PointerEventData pointerEventData)
+    public virtual void OnPointerExit(PointerEventData pointerEventData)
     {
-        Debug.Log("Cursor Exiting " + gameObject.name + " GameObject");
+        Debug.Log("Cursor exited " + gameObject.name);
     }
 }

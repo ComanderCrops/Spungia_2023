@@ -15,12 +15,12 @@ public class Door : IInteractible
     bool doorUsed = false;
 
     GameObject player;
-    InventoryManager inventoryManager;
+    InventoryManager inventory;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        inventoryManager = Camera.main.GetComponent<InventoryManager>();
+        inventory = Camera.main.GetComponent<InventoryManager>();
     }
 
     public override void OnPointerClick(PointerEventData pointerEventData)
@@ -30,7 +30,7 @@ public class Door : IInteractible
             return;
         }
 
-        if (locked && !inventoryManager.ContainsItem(key))
+        if (locked && !inventory.ContainsItem(key))
         {
             Debug.Log(key.displayName + " (" + key.name + ") required to unlock door");
             return;

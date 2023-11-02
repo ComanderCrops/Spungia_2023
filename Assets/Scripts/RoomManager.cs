@@ -28,7 +28,14 @@ public class RoomManager : MonoBehaviour
                 currentRoom.gameObject.SetActive(true);
                 uiManager.UpdateRoomUI(currentRoom);
 
-                player.transform.position = new Vector3(-player.transform.position.x, -player.transform.position.y, 0);
+                if (currentRoom.useCustomPlayerSpawnpoint)
+                {
+                    player.transform.position = currentRoom.customPlayerSpawnpoint;
+                }
+                else
+                {
+                    player.transform.position = new Vector3(-player.transform.position.x, -player.transform.position.y, 0);
+                }
             }
             else
             {

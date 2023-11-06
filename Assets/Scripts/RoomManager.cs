@@ -27,6 +27,7 @@ public class RoomManager : MonoBehaviour
                 currentRoom = room;
                 currentRoom.gameObject.SetActive(true);
                 uiManager.UpdateRoomUI(currentRoom);
+                uiManager.HideTooltip();
 
                 if (currentRoom.useCustomPlayerSpawnpoint)
                 {

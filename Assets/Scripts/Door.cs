@@ -7,6 +7,8 @@ public class Door : IInteractible
 {
     [SerializeField] UnityEvent doorOpenEvent;
 
+    [SerializeField] string tooltip;
+
     [SerializeField] bool locked = false;
     [SerializeField] Item_SO key;
 
@@ -16,11 +18,13 @@ public class Door : IInteractible
 
     GameObject player;
     InventoryManager inventory;
+    UImanager uiManager;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         inventory = Camera.main.GetComponent<InventoryManager>();
+        uiManager = Camera.main.GetComponent<UImanager>();
     }
 
     public override void OnPointerClick(PointerEventData pointerEventData)
@@ -30,10 +34,19 @@ public class Door : IInteractible
             return;
         }
 
-        if (locked && !inventory.ContainsItem(key))
+        if (locked)
         {
-            Debug.Log(key.displayName + " (" + key.name + ") required to unlock door");
-            return;
+            if (!inventory.ContainsItem(key))
+            {
+                Debug.Log(key.displayName + " (" + key.name + ") required to unlock door");
+                return;
+            }
+            else
+            {
+                locked = false;
+                inventory.RemoveItem(key);
+                tooltip = "Open Door";
+            }
         }
 
         doorUsed = true;
@@ -54,13 +67,15 @@ public class Door : IInteractible
         doorOpenEvent.Invoke();
     }
 
-    /*void OnPointerEnter(PointerEventData pointerEventData)
+    public override void OnPointerEnter(PointerEventData pointerEventData)
     {
-        //doorOpenEvent = null;
+        uiManager.UpdateTooltip(tooltip, transform.position);
+        base.OnPointerEnter(pointerEventData);
     }
 
-    void OnPointerExit(PointerEventData pointerEventData)
+    public override void OnPointerExit(PointerEventData pointerEventData)
     {
-        //doorOpenEvent = null;
-    }*/
+        uiManager.HideTooltip();
+        base.OnPointerExit(pointerEventData);
+    }
 }
